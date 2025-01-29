@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.HotelList" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="backgroundColor">@color/very_dark_gray</item>
+        <item name="rippleColorOnBackground">@color/dark_gray_secondary</item>
+        <item name="textColorMain">@color/white</item>
+        <item name="textColorSecondary">@color/light_gray</item>
+        <item name="controlColor">@color/gray</item>
+        <item name="starColor">@color/golden</item>
+        <item name="starOutlineColor">@color/golden</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/pale_green</item>
+        <item name="colorPrimaryVariant">@color/dark_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/aquamarine</item>
+        <item name="colorSecondaryVariant">@color/turquoise</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:windowBackground">@color/very_dark_gray</item>
+    </style>
+</resources>

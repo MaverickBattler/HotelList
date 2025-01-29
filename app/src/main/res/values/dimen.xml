@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="contentPadding">16dp</dimen>
+    <dimen name="distanceMinimal">4dp</dimen>
+    <dimen name="distanceSmall">8dp</dimen>
+    <dimen name="distanceMedium">16dp</dimen>
+    <dimen name="distanceLarge">24dp</dimen>
+    <dimen name="starSizeListItem">20dp</dimen>
+
+    <dimen name="textSizeTitleText">24sp</dimen>
+    <dimen name="textSizeRegularText">16sp</dimen>
+    <dimen name="listItemMainTextSize">18sp</dimen>
+    <dimen name="listItemSecondaryTextSize">14sp</dimen>
+</resources>

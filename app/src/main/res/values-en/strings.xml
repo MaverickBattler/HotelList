@@ -1,0 +1,15 @@
+<resources>
+    <string name="hotel_list">Hotel list</string>
+    <string name="hotel_details">Hotel details</string>
+    <string name="star_1">Hotel rating - star 1</string>
+    <string name="star_2">Hotel rating - star 2</string>
+    <string name="star_3">Hotel rating - star 3</string>
+    <string name="star_4">Hotel rating - star 4</string>
+    <string name="star_5">Hotel rating - star 5</string>
+    <string name="network_error_message">Could not fetch hotel data from server. Please, try again later</string>
+    <string name="address_is">"Address: "</string>
+    <string name="free_suites">"Free suites: "</string>
+    <string name="distance_to">"Distance to hotel: "</string>
+    <string name="kilometers_postfix">" km"</string>
+    <string name="nothing_to_show">No information about hotels. Try again later.</string>
+</resources>

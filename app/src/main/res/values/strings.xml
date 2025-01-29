@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name" translatable="false">HotelList</string>
+    <string name="hotel_list">Список отелей</string>
+    <string name="hotel_details">Информация об отеле</string>
+    <string name="star_1">Оценка отеля - звезда 1</string>
+    <string name="star_2">Оценка отеля - звезда 2</string>
+    <string name="star_3">Оценка отеля - звезда 3</string>
+    <string name="star_4">Оценка отеля - звезда 4</string>
+    <string name="star_5">Оценка отеля - звезда 5</string>
+    <string name="network_error_message">Не удалось получить данные об отелях с сервера.</string>
+    <string name="address_is">"Адрес: "</string>
+    <string name="free_suites">"Свободно номеров: "</string>
+    <string name="distance_to">"Расстояние до отеля: "</string>
+    <string name="kilometers_postfix">" км"</string>
+    <string name="nothing_to_show">Информации об отелях нет. Повторите запрос позднее.</string>
+</resources>
