@@ -6,7 +6,7 @@
     app:startDestination="@id/hotelList">
     <fragment
         android:id="@+id/hotelList"
-        android:name="com.mokhnatkinkirill.hotellist.hotel_list.ui.fragment.HotelListFragment"
+        android:name="com.mokhnatkinkirill.hotellist.hotel_list.presentation.fragment.HotelListFragment"
         android:label="@string/hotel_list"
         tools:layout="@layout/fragment_hotel_list">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/hotelDetails"
-        android:name="com.mokhnatkinkirill.hotellist.details.ui.fragment.HotelDetailsFragment"
+        android:name="com.mokhnatkinkirill.hotellist.details.presentation.fragment.HotelDetailsFragment"
         android:label="@string/hotel_details">
         <argument
             android:name="hotelId"

@@ -3,7 +3,6 @@ package com.mokhnatkinkirill.hotellist.data.network.model
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-
 @JsonClass(generateAdapter = true)
 data class HotelInfoDto(
     val id: Int,
@@ -11,7 +10,7 @@ data class HotelInfoDto(
     val address: String,
     val stars: Double,
     val distance: Double,
-    val image: String,
+    val image: String?,
     @Json(name = "suites_availability")
     val suitesAvailability: String,
     val lat: Double,

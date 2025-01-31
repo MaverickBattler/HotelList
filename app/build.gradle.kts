@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.lifecycle.runtime.compose)
 
     implementation(libs.material)
 
@@ -72,7 +73,8 @@ dependencies {
     implementation(libs.koin)
     implementation(libs.timber)
 
-    implementation(libs.glide)
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
 
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)

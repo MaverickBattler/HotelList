@@ -18,7 +18,7 @@ class HotelListInfoMapper {
                     distance = hotelListInfoDto.distance,
                     suitesAvailable = hotelListInfoDto.suitesAvailability.split(
                         SUITES_AVAILABILITY_LIST_SEPARATOR
-                    ).map { it.isNotEmpty() }.count()
+                    ).count { it.isNotEmpty() }
                 )
             }
         )

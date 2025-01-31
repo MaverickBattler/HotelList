@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">HotelList</string>
-    <string name="hotel_list">Список отелей</string>
+    <string name="hotel_list">Отели</string>
     <string name="hotel_details">Информация об отеле</string>
     <string name="star_1">Оценка отеля - звезда 1</string>
     <string name="star_2">Оценка отеля - звезда 2</string>
@@ -9,8 +9,18 @@
     <string name="star_5">Оценка отеля - звезда 5</string>
     <string name="network_error_message">Не удалось получить данные об отелях с сервера.</string>
     <string name="address_is">"Адрес: "</string>
-    <string name="free_suites">"Свободно номеров: "</string>
-    <string name="distance_to">"Расстояние до отеля: "</string>
+    <string name="free_suites_amt">"Свободно номеров: "</string>
+    <string name="distance_to">"Расстояние от центра города: "</string>
     <string name="kilometers_postfix">" км"</string>
     <string name="nothing_to_show">Информации об отелях нет. Повторите запрос позднее.</string>
+    <string name="sort_icon">Иконка сортировки</string>
+    <string name="default_">По умолчанию</string>
+    <string name="free_suites">Свободные номера</string>
+    <string name="distance_from_center">Расстояние от центра</string>
+    <string name="error_loading_hotel_details">Произошла ошибка при загрузке данных об отеле. Пожалуйста, попробуйте снова позже.</string>
+    <string name="failed_to_load_image">Ошибка загрузки картинки</string>
+    <string name="free_suites_are">Свободные номера: %s</string>
+    <string name="distance_to_center_is">Расстояние от центра города: %s км</string>
+    <string name="retry">Попробовать снова</string>
+    <string name="no_image_available">Нет картинки</string>
 </resources>

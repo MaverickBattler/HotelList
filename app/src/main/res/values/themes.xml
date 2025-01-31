@@ -2,6 +2,7 @@
 <resources>
     <style name="Theme.HotelList" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="backgroundColor">@color/white</item>
+        <item name="softBackgroundColor">@color/very_light_gray</item>
         <item name="rippleColorOnBackground">@color/light_gray</item>
         <item name="textColorMain">@color/dark_gray_main</item>
         <item name="textColorSecondary">@color/dark_gray_secondary</item>

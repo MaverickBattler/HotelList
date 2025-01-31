@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/spinner_item"
+    android:singleLine="true"
+    android:textSize="@dimen/toolbarSpinnerItemTextSize"
+    android:textColor="?attr/textColorMain"
+    android:padding="@dimen/distanceSmall"
+    android:background="@drawable/sorting_spinner_dropdown_item_background"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="end" />

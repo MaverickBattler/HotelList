@@ -13,7 +13,15 @@
         style="@style/Widget.MaterialComponents.Toolbar.Primary"
         android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize" />
+        android:layout_height="?attr/actionBarSize">
+        <Spinner
+            android:gravity="end"
+            android:id="@+id/spinner_sort"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:visibility="invisible"
+            android:layout_height="match_parent"/>
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"

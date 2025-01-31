@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    tools:ignore="UseCompoundDrawables">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/sort_icon"
+        android:contentDescription="@string/sort_icon"/>
+    <TextView
+        android:paddingStart="@dimen/distanceSmall"
+        android:id="@+id/spinner_item_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:layout_gravity="center_vertical"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="@dimen/toolbarSpinnerItemTextSize"
+        tools:ignore="RtlSymmetry" />
+</LinearLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="hotel_list">Hotel list</string>
+    <string name="hotel_list">Hotels</string>
     <string name="hotel_details">Hotel details</string>
     <string name="star_1">Hotel rating - star 1</string>
     <string name="star_2">Hotel rating - star 2</string>
@@ -8,8 +8,18 @@
     <string name="star_5">Hotel rating - star 5</string>
     <string name="network_error_message">Could not fetch hotel data from server. Please, try again later</string>
     <string name="address_is">"Address: "</string>
-    <string name="free_suites">"Free suites: "</string>
-    <string name="distance_to">"Distance to hotel: "</string>
+    <string name="free_suites_amt">"Free suites: "</string>
+    <string name="distance_to">"Distance from town center: "</string>
     <string name="kilometers_postfix">" km"</string>
     <string name="nothing_to_show">No information about hotels. Try again later.</string>
+    <string name="sort_icon">Sort icon</string>
+    <string name="default_">Default</string>
+    <string name="free_suites">Suites amount</string>
+    <string name="distance_from_center">Distance from center</string>
+    <string name="error_loading_hotel_details">An error occurred during loading hotel info. Please, try again later.</string>
+    <string name="failed_to_load_image">Failed to load image</string>
+    <string name="free_suites_are">"Free suites: %s"</string>
+    <string name="distance_to_center_is">Distance from the town center: %s km</string>
+    <string name="retry">Try again</string>
+    <string name="no_image_available">No image available</string>
 </resources>
