@@ -2,7 +2,6 @@ package com.mokhnatkinkirill.hotellist.hotel_list.presentation.mapper
 
 import android.app.Application
 import android.text.SpannableStringBuilder
-import androidx.annotation.DrawableRes
 import androidx.core.text.bold
 import com.mokhnatkinkirill.hotellist.R
 import com.mokhnatkinkirill.hotellist.common_util.StarDrawableProvider
@@ -43,7 +42,7 @@ class HotelListUiStateMapper(
                 }
                 val addressPrefix = application.getString(R.string.address_is)
                 val distanceToPrefix = application.getString(R.string.distance_to)
-                val distanceToPostfix = application.getString(R.string.kilometers_postfix)
+                val distanceToPostfix = application.getString(R.string.meters_postfix)
                 val freeSuitesPrefix = application.getString(R.string.free_suites_amt)
                 prevUiState.copy(
                     appsInfoList = hotelListResult.hotelListInfo.map {

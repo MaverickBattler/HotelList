@@ -11,7 +11,7 @@
     <string name="address_is">"Адрес: "</string>
     <string name="free_suites_amt">"Свободно номеров: "</string>
     <string name="distance_to">"Расстояние от центра города: "</string>
-    <string name="kilometers_postfix">" км"</string>
+    <string name="meters_postfix">" м"</string>
     <string name="nothing_to_show">Информации об отелях нет. Повторите запрос позднее.</string>
     <string name="sort_icon">Иконка сортировки</string>
     <string name="default_">По умолчанию</string>
@@ -20,7 +20,7 @@
     <string name="error_loading_hotel_details">Произошла ошибка при загрузке данных об отеле. Пожалуйста, попробуйте снова позже.</string>
     <string name="failed_to_load_image">Ошибка загрузки картинки</string>
     <string name="free_suites_are">Свободные номера: %s</string>
-    <string name="distance_to_center_is">Расстояние от центра города: %s км</string>
+    <string name="distance_to_center_is">Расстояние от центра города: %s м</string>
     <string name="retry">Попробовать снова</string>
     <string name="no_image_available">Нет картинки</string>
 </resources>
