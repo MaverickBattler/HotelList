@@ -33,8 +33,6 @@ import androidx.compose.ui.text.PlaceholderVerticalAlign
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import coil.compose.SubcomposeAsyncImage
 import coil.network.HttpException
 import coil.request.ImageRequest
@@ -216,15 +214,15 @@ fun TextWithIcon(@DrawableRes drawableRes: Int, text: String, onClickListener: (
         inlineContent = mapOf(
             "arrow" to InlineTextContent(
                 Placeholder(
-                    width = 18.sp,
-                    height = 18.sp,
+                    width = Dimen.linkIconPlaceholderSize,
+                    height = Dimen.linkIconPlaceholderSize,
                     placeholderVerticalAlign = PlaceholderVerticalAlign.Center
                 )
             ) {
                 Icon(
                     painter = icon,
                     contentDescription = null,
-                    modifier = Modifier.size(18.dp),
+                    modifier = Modifier.size(Dimen.linkIconSize),
                     tint = textColorSecondary,
                 )
             }

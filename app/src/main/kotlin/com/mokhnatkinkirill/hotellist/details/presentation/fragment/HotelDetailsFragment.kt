@@ -42,10 +42,10 @@ class HotelDetailsFragment : Fragment() {
                 HotelListTheme {
                     HotelDetailsScreen(
                         state = state,
-                        onRetry = { viewModel.updateHotelData() },
                         onMapClicked = { lat, lon ->
                             viewModel.onOpenMapClicked(lat, lon)
-                        }
+                        },
+                        onRetry = { viewModel.updateHotelData() }
                     )
                 }
             }

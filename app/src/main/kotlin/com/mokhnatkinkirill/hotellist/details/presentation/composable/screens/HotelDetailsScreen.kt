@@ -6,20 +6,20 @@ import com.mokhnatkinkirill.hotellist.details.presentation.state.HotelDetailsUiS
 @Composable
 fun HotelDetailsScreen(
     state: HotelDetailsUiState,
-    onRetry: () -> Unit,
-    onMapClicked: (lat: String, lon: String) -> Unit
+    onMapClicked: (lat: String, lon: String) -> Unit,
+    onRetry: () -> Unit
 ) {
     when (state) {
-        is HotelDetailsUiState.Content -> {
-            HotelDetailsContent(hotel = state, onMapClicked = onMapClicked)
+        is HotelDetailsUiState.Loading -> {
+            LoadingScreen()
         }
 
         is HotelDetailsUiState.Error -> {
             ErrorScreen(message = state.message, onRetry = onRetry)
         }
 
-        is HotelDetailsUiState.Loading -> {
-            LoadingScreen()
+        is HotelDetailsUiState.Content -> {
+            AnimatedHotelDetailsContent(hotel = state, onMapClicked = onMapClicked)
         }
     }
 }
