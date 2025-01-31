@@ -1,4 +1,4 @@
-package com.mokhnatkinkirill.hotellist.details.presentation.composable
+package com.mokhnatkinkirill.hotellist.details.presentation.composable.screens
 
 import androidx.compose.runtime.Composable
 import com.mokhnatkinkirill.hotellist.details.presentation.state.HotelDetailsUiState

@@ -6,15 +6,11 @@ import com.mokhnatkinkirill.hotellist.data.network.HotelInfoApiService
 import com.mokhnatkinkirill.hotellist.data.network.RetrofitClient
 import com.mokhnatkinkirill.hotellist.data.network.mapper.HotelInfoMapper
 import com.mokhnatkinkirill.hotellist.data.network.mapper.HotelListInfoMapper
-import com.mokhnatkinkirill.hotellist.data.repository.HotelImageRepositoryImpl
 import com.mokhnatkinkirill.hotellist.data.repository.HotelInfoRepositoryImpl
 import com.mokhnatkinkirill.hotellist.data.repository.HotelListInfoRepositoryImpl
-import com.mokhnatkinkirill.hotellist.details.domain.interactor.GetHotelImageInteractor
 import com.mokhnatkinkirill.hotellist.details.domain.interactor.GetHotelInfoInteractor
-import com.mokhnatkinkirill.hotellist.details.domain.repository.HotelImageRepository
 import com.mokhnatkinkirill.hotellist.hotel_list.domain.interactor.GetHotelListInfoInteractor
 import com.mokhnatkinkirill.hotellist.details.domain.repository.HotelInfoRepository
-import com.mokhnatkinkirill.hotellist.details.presentation.mapper.HotelDetailsImageDownloadUiStateMapper
 import com.mokhnatkinkirill.hotellist.details.presentation.mapper.HotelDetailsUiStateMapper
 import com.mokhnatkinkirill.hotellist.hotel_list.domain.repository.HotelListInfoRepository
 import com.mokhnatkinkirill.hotellist.hotel_list.presentation.mapper.HotelListUiStateMapper
@@ -34,31 +30,9 @@ val mainModule = module {
     viewModel { params ->
         HotelDetailsViewModel(
             hotelId = params.get(),
-            getHotelImageInteractor = get(),
             getHotelInfoInteractor = get(),
             hotelDetailsUiStateMapper = get(),
-            hotelDetailsImageDownloadUiStateMapper = get(),
         )
-    }
-
-    factory {
-        GetHotelImageInteractor(
-            hotelImageRepository = get()
-        )
-    }
-
-    factory {
-        HotelImageRepositoryImpl(
-            application = get()
-        )
-    }
-
-    factory<HotelImageRepository> {
-        get<HotelImageRepositoryImpl>()
-    }
-
-    factory {
-        HotelDetailsImageDownloadUiStateMapper()
     }
 
     factory {

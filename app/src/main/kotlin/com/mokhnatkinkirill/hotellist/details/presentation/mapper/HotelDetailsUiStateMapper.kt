@@ -35,10 +35,13 @@ class HotelDetailsUiStateMapper(
                     5,
                     hotelInfoResult.stars
                 )
-                val image = if (hotelInfoResult.imageName != null) {
-                    HotelDetailsUiState.Content.Image.ImageLoading
-                } else {
-                    HotelDetailsUiState.Content.Image.NoImage
+                val image = when(hotelInfoResult.image) {
+                    HotelInfoResult.Image.NoImage -> {
+                        HotelDetailsUiState.Content.Image.NoImage
+                    }
+                    is HotelInfoResult.Image.Url -> {
+                        HotelDetailsUiState.Content.Image.ImageSource(hotelInfoResult.image.url)
+                    }
                 }
                 val suitesAvailabilityList = hotelInfoResult.suitesAvailability.joinToString()
                 val suitesAvailability =

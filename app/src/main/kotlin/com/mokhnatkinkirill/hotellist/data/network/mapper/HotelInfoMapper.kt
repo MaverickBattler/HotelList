@@ -1,5 +1,6 @@
 package com.mokhnatkinkirill.hotellist.data.network.mapper
 
+import com.mokhnatkinkirill.hotellist.data.network.HOTEL_IMAGE_ENDPOINT
 import com.mokhnatkinkirill.hotellist.data.network.model.HotelInfoDto
 import com.mokhnatkinkirill.hotellist.details.domain.model.HotelInfoResult
 
@@ -9,7 +10,11 @@ class HotelInfoMapper {
         hotelInfoDto: HotelInfoDto?,
     ): HotelInfoResult {
         if (hotelInfoDto == null) return HotelInfoResult.NetworkError
-        val imageName = if (hotelInfoDto.image.isNullOrEmpty()) null else hotelInfoDto.image
+        val image = if (hotelInfoDto.image.isNullOrEmpty()) {
+            HotelInfoResult.Image.NoImage
+        } else {
+            HotelInfoResult.Image.Url("$HOTEL_IMAGE_ENDPOINT${hotelInfoDto.image}")
+        }
         val suitesAvailability = hotelInfoDto.suitesAvailability.split(
             SUITES_AVAILABILITY_LIST_SEPARATOR
         ).filter { it.isNotEmpty() }
@@ -19,7 +24,7 @@ class HotelInfoMapper {
             address = hotelInfoDto.address,
             stars = hotelInfoDto.stars,
             distance = hotelInfoDto.distance,
-            imageName = imageName,
+            image = image,
             suitesAvailability = suitesAvailability,
             lat = hotelInfoDto.lat,
             lon = hotelInfoDto.lon,

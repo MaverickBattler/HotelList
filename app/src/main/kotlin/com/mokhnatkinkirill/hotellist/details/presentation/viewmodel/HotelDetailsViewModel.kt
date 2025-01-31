@@ -3,13 +3,8 @@ package com.mokhnatkinkirill.hotellist.details.presentation.viewmodel
 import android.net.Uri
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mokhnatkinkirill.hotellist.R
-import com.mokhnatkinkirill.hotellist.data.network.model.ImageLoadResult
-import com.mokhnatkinkirill.hotellist.details.domain.interactor.GetHotelImageInteractor
 import com.mokhnatkinkirill.hotellist.details.domain.interactor.GetHotelInfoInteractor
-import com.mokhnatkinkirill.hotellist.details.domain.model.HotelInfoResult
 import com.mokhnatkinkirill.hotellist.details.presentation.event.HotelDetailsUiEvent
-import com.mokhnatkinkirill.hotellist.details.presentation.mapper.HotelDetailsImageDownloadUiStateMapper
 import com.mokhnatkinkirill.hotellist.details.presentation.mapper.HotelDetailsUiStateMapper
 import com.mokhnatkinkirill.hotellist.details.presentation.state.HotelDetailsUiState
 import kotlinx.coroutines.Dispatchers
@@ -19,15 +14,12 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class HotelDetailsViewModel(
     private val hotelId: Int,
     private val getHotelInfoInteractor: GetHotelInfoInteractor,
-    private val getHotelImageInteractor: GetHotelImageInteractor,
     private val hotelDetailsUiStateMapper: HotelDetailsUiStateMapper,
-    private val hotelDetailsImageDownloadUiStateMapper: HotelDetailsImageDownloadUiStateMapper,
 ) : ViewModel() {
 
     private val _uiState: MutableStateFlow<HotelDetailsUiState> =
@@ -61,17 +53,6 @@ class HotelDetailsViewModel(
         getHotelInfoJob = viewModelScope.launch(Dispatchers.IO) {
             val hotelInfo = getHotelInfoInteractor.getHotelInfo(hotelId)
             _uiState.emit(hotelDetailsUiStateMapper.mapHotelDetailsUiState(hotelInfo))
-            if (hotelInfo is HotelInfoResult.HotelInfo && hotelInfo.imageName != null) {
-                val imageLoadResult = getHotelImageInteractor.getHotelImage(hotelInfo.imageName)
-                if (imageLoadResult is ImageLoadResult.FailedToLoad) {
-                    _uiEvent.emit(HotelDetailsUiEvent.ShowToast(R.string.failed_to_load_image))
-                }
-                _uiState.update { prevUiState ->
-                    hotelDetailsImageDownloadUiStateMapper.mapHotelDetailsUiState(
-                        imageLoadResult, prevUiState
-                    )
-                }
-            }
         }
     }
 

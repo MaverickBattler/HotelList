@@ -25,8 +25,6 @@ sealed interface HotelDetailsUiState {
 
             data object NoImage: Image
 
-            data object ImageLoading: Image
-
             data class ImageSource(val imagePath: String): Image
         }
     }

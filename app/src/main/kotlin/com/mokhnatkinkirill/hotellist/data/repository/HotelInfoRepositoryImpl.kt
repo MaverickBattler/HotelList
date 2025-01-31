@@ -6,6 +6,7 @@ import com.mokhnatkinkirill.hotellist.details.domain.model.HotelInfoResult
 import com.mokhnatkinkirill.hotellist.details.domain.repository.HotelInfoRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import kotlin.coroutines.cancellation.CancellationException
 
 class HotelInfoRepositoryImpl(
     private val hotelInfoMapper: HotelInfoMapper,
@@ -13,7 +14,14 @@ class HotelInfoRepositoryImpl(
 ) : HotelInfoRepository {
 
     override suspend fun getHotelInfo(hotelId: Int): HotelInfoResult = withContext(Dispatchers.IO) {
-        val hotelInfo = hotelInfoApiService.getHotelInfo(hotelId)
+        val hotelInfo = try {
+            hotelInfoApiService.getHotelInfo(hotelId)
+        } catch (e: Exception) {
+            if (e is CancellationException) {
+                throw e
+            }
+            null
+        }
         hotelInfoMapper.mapHotelInfoResult(hotelInfo)
     }
 }

@@ -1,4 +1,4 @@
-package com.mokhnatkinkirill.hotellist.details.presentation.composable
+package com.mokhnatkinkirill.hotellist.details.presentation.composable.design
 
 import androidx.compose.ui.unit.dp
 

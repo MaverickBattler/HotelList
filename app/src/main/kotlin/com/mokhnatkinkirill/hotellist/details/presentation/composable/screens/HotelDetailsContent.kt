@@ -1,4 +1,4 @@
-package com.mokhnatkinkirill.hotellist.details.presentation.composable
+package com.mokhnatkinkirill.hotellist.details.presentation.composable.screens
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
@@ -33,13 +33,16 @@ import androidx.compose.ui.text.PlaceholderVerticalAlign
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
+import coil.compose.SubcomposeAsyncImage
+import coil.network.HttpException
 import coil.request.ImageRequest
 import com.mokhnatkinkirill.hotellist.R
+import com.mokhnatkinkirill.hotellist.details.presentation.composable.design.Dimen
+import com.mokhnatkinkirill.hotellist.details.presentation.composable.getColorFromAttr
 import com.mokhnatkinkirill.hotellist.details.presentation.state.HotelDetailsUiState
+import com.mokhnatkinkirill.hotellist.details.presentation.transformations.CropBorderTransformation
 
 @Composable
 fun HotelDetailsContent(
@@ -47,7 +50,6 @@ fun HotelDetailsContent(
 ) {
     val context = LocalContext.current
     val textColorMain = getColorFromAttr(R.attr.textColorMain, context)
-    val primaryColor = getColorFromAttr(com.google.android.material.R.attr.colorPrimary, context)
     val softBackgroundColor = getColorFromAttr(R.attr.softBackgroundColor, context)
     Column(
         modifier = Modifier
@@ -55,7 +57,7 @@ fun HotelDetailsContent(
             .verticalScroll(rememberScrollState())
     ) {
         when (hotel.image) {
-            is HotelDetailsUiState.Content.Image.NoImage -> {
+            HotelDetailsUiState.Content.Image.NoImage -> {
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -67,20 +69,8 @@ fun HotelDetailsContent(
                 }
             }
 
-            is HotelDetailsUiState.Content.Image.ImageLoading -> {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(Dimen.hotelImageSize)
-                        .background(softBackgroundColor),
-                    contentAlignment = Alignment.Center
-                ) {
-                    CircularProgressIndicator(color = primaryColor)
-                }
-            }
-
             is HotelDetailsUiState.Content.Image.ImageSource -> {
-                CoilImage(imagePath = hotel.image.imagePath, imageHeight = Dimen.hotelImageSize)
+                AsyncCoilImage(imageUrl = hotel.image.imagePath)
             }
         }
 
@@ -162,30 +152,48 @@ fun HotelDetailsContent(
 }
 
 @Composable
-fun CoilImage(imagePath: String, imageHeight: Dp) {
+fun AsyncCoilImage(imageUrl: String, modifier: Modifier = Modifier) {
     val context = LocalContext.current
     val softBackgroundColor = getColorFromAttr(R.attr.softBackgroundColor, context)
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(imageHeight)
-    ) {
-        Box(
-            modifier = Modifier
-                .matchParentSize()
-                .background(softBackgroundColor)
-        )
-
-        AsyncImage(
-            model = ImageRequest.Builder(LocalContext.current)
-                .data(imagePath)
-                .crossfade(true)
-                .build(),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.Crop
-        )
-    }
+    val textColorMain = getColorFromAttr(R.attr.textColorMain, context)
+    SubcomposeAsyncImage(
+        model = ImageRequest.Builder(LocalContext.current)
+            .data(imageUrl)
+            .crossfade(true)
+            .transformations(CropBorderTransformation()) // removing the 1 px border
+            .build(),
+        contentDescription = null,
+        modifier = modifier.height(Dimen.hotelImageSize),
+        contentScale = ContentScale.Crop,
+        loading = {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(Dimen.hotelImageSize)
+                    .background(softBackgroundColor),
+                contentAlignment = Alignment.Center
+            ) {
+                CircularProgressIndicator()
+            }
+        },
+        error = { error ->
+            val throwable = error.result.throwable
+            val textOnImage = if (throwable is HttpException && throwable.response.code != 404) {
+                stringResource(R.string.failed_to_load_image)
+            } else {
+                stringResource(R.string.no_image_available)
+            }
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(Dimen.hotelImageSize)
+                    .background(softBackgroundColor),
+                contentAlignment = Alignment.Center
+            ) {
+                Text(text = textOnImage, color = textColorMain)
+            }
+        }
+    )
 }
 
 @Composable
